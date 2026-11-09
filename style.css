@@ -4,54 +4,65 @@
     font-size: 50px;
 } */
 
-*{
+
+* {
     margin: 0;
     padding: 0;
-     text-align: center;
+    box-sizing: border-box;
+    text-align: center;
 }
 
-h1{
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+h1 {
     background-color: #081b31;
     color: white;
-    height: 5rem;
-   
+    min-height: 5rem;
     line-height: 5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    padding: 0 10px;
+}
+
+/* Choices */
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 3rem);
+    margin: 5rem auto 0;
+    padding: 0 15px;
+    flex-wrap: wrap;
 }
 
 .choice {
-    height: 165px;
-    width: 165px;
-    border-radius:50% ;
-    /* background-color: #081b31; */
+    height: clamp(100px, 18vw, 165px);
+    width: clamp(100px, 18vw, 165px);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-.choice:hover{
     cursor: pointer;
-    background-color: #081b31;
-    /* transform: scale(1.05); */
+    transition: 0.3s ease;
+}
 
+.choice:hover {
+    background-color: #081b31;
+    transform: scale(1.05);
 }
 
 .choice img {
-    height: 150px;
-    width: 150px;
+    height: 90%;
+    width: 90%;
     object-fit: cover;
     border-radius: 50%;
 }
-.choices{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    margin-top: 5rem;
-}
 
-/* score board */
-
-.score-board{
+/* Score Board */
+.score-board {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,18 +72,78 @@ h1{
 }
 
 #user-score,
-#comp-score{
-    font-size: 4rem;
+#comp-score {
+    font-size: clamp(2.5rem, 7vw, 4rem);
 }
 
-#msg{
+/* Message */
+.msg-container {
+    margin-top: 5rem;
+    padding: 0 15px;
+}
+
+#msg {
     background-color: #081b31;
     color: #fff;
-    font-size: 2rem;
-    display: inline;
+    font-size: clamp(1rem, 4vw, 2rem);
+    display: inline-block;
     padding: 1rem;
     border-radius: 1rem;
+    max-width: 100%;
+    overflow-wrap: break-word;
 }
-.msg-container{
-    margin-top: 5rem;
+
+/* Tablet */
+@media (max-width: 768px) {
+    .choices {
+        margin-top: 4rem;
+        gap: 1.5rem;
+    }
+
+    .score-board {
+        gap: 3rem;
+    }
+
+    .msg-container {
+        margin-top: 4rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    h1 {
+        min-height: 4rem;
+        line-height: 4rem;
+        font-size: 1.5rem;
+    }
+
+    .choices {
+        gap: 12px;
+        margin-top: 3rem;
+    }
+
+    .choice {
+        height: 95px;
+        width: 95px;
+    }
+
+    .score-board {
+        gap: 3rem;
+        font-size: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    #user-score,
+    #comp-score {
+        font-size: 3rem;
+    }
+
+    .msg-container {
+        margin-top: 3rem;
+    }
+
+    #msg {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
 }
