@@ -22,7 +22,7 @@ const drawGame=()=>{                                              // draw functi
 }
 
 const showWinner=(userWin,userChoice,compChoice)=>{
-    
+
     if(userWin){
         userScore++;
         userScorePara.innerText=userScore;
@@ -48,6 +48,7 @@ const playGame=(userChoice) =>{                                //user choice fun
     console.log("user choice=",userChoice);
     const compChoice =genCompChoice();
     console.log("comp choice=",compChoice)
+
 
     if(userChoice === compChoice){
         drawGame();                              // draw game same output
